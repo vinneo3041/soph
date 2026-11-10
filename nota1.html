@@ -45,6 +45,18 @@ body::after {
     text-shadow: -3px 2px 1px #000000;
 }
 
+#poem-text span {
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: default;
+}
+
+#poem-text span:hover {
+    color: var(--letter-color);
+    transform: scale(1.3);
+    text-shadow: 0 0 10px var(--letter-color);
+}
+
 #deer {
     width: 300px;
     height: 300px;
@@ -53,16 +65,70 @@ body::after {
     z-index: -1;
     background:url("img/deer.jpg") no-repeat center;
     background-size:cover;
-    transform: translate(-255px, -30px)
+    transform: translate(-255px, -30px);
+    box-shadow: -0px 0px 30px #ebc08e;
+    transition: all 0.5s ease-in-out;
 }
 
+#deer:hover {
+transform: translate(-255px, -30px) scale(1.2);
+}
+
+#stamp {
+    width:auto;
+    height:auto;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    transform: translate(360px, -420px) scale(1.2);
+}
+
+#stamp:hover {
+    content: url("img/stamp2.png");
+    transform: translate(360px, -420px) scale(1.3);
+}
+#stamp:active {
+    transform: translate(360px, -420px) scale(1.35);
+}
     </style>
+
+
+<script>
+    const poem = document.getElementById("poem-text");
+    
+    const colors = [
+        "#ff6b6b",
+        "#ffd166",
+        "#06d6a0",
+        "#4cc9f0",
+        "#c77dff",
+        "#f72585",
+        "#ffffff",
+        "#e9c46a"
+    ];
+    
+    const originalText = poem.innerHTML;
+    
+    poem.innerHTML = originalText.replace(
+        /([^<>\s])/g,
+        (letter) => {
+            const color = colors[
+                Math.floor(Math.random() * colors.length)
+            ];
+    
+            return `<span style="--letter-color: ${color}">${letter}</span>`;
+        }
+    );
+    </script>
+
+
+
 </head>
 <body>
 <div id="poem">
 
 <div id="text">
-<p>
+<p id="poem-text">
 An cuimhin leat <br>
 an oíche úd <br>
 a bhí tú ag an bhfuinneog <br>
@@ -77,6 +143,9 @@ An cuimhin leat an oíche úd 'san oíche ag cur cuisne<br>
 </p>
 </div>
 <div id="deer"></div>
+<div id="stamp">
+    <img src="img/stamp1.png" title="sonhos de amor">
+</div>
 
 </div>
     
