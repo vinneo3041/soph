@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>140626</title>
     <style>
-        body {
+    body {
     background:url("img/grass.jpg");
     background-size:20%;
     text-align:center;
-    text-decoration-color:#b3d167;
     font-family:'Times New Roman', Times, serif; 
     color:#d4b170;
     font-size:50px;
@@ -18,18 +17,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center,
-        transparent 99%,
-        rgba(255, 0, 0, 0.4) 100%
-    );
-    z-index: -1;
 }
 
 #poem {
@@ -43,18 +30,7 @@ body::after {
     transform: translate(-180px, -480px);
     width: 3003px;
     text-shadow: -3px 2px 1px #000000;
-}
-
-#poem-text span {
-    display: inline-block;
-    transition: color 0.3s ease, transform 0.3s ease;
-    cursor: default;
-}
-
-#poem-text span:hover {
-    color: var(--letter-color);
-    transform: scale(1.3);
-    text-shadow: 0 0 10px var(--letter-color);
+    z-index: 2;
 }
 
 #deer {
@@ -62,16 +38,16 @@ body::after {
     height: 300px;
     text-align: center;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     background:url("img/deer.jpg") no-repeat center;
     background-size:cover;
     transform: translate(-255px, -30px);
-    box-shadow: -0px 0px 30px #ebc08e;
-    transition: all 0.5s ease-in-out;
+    box-shadow: 0px 0px 54px #dbb671;
 }
 
 #deer:hover {
-transform: translate(-255px, -30px) scale(1.2);
+    box-shadow: 0px 0px 54px #f6f5f7;
+    transform: translate(-255px, -30px);
 }
 
 #stamp {
@@ -79,10 +55,9 @@ transform: translate(-255px, -30px) scale(1.2);
     height:auto;
     text-align: center;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     transform: translate(360px, -420px) scale(1.2);
 }
-
 #stamp:hover {
     content: url("img/stamp2.png");
     transform: translate(360px, -420px) scale(1.3);
@@ -90,56 +65,43 @@ transform: translate(-255px, -30px) scale(1.2);
 #stamp:active {
     transform: translate(360px, -420px) scale(1.35);
 }
+
+#poem-text span {
+    display: inline-block;
+    color: #e7b964;
+}
+
+#poem-text span:hover {
+    color: #b488e6;
+    cursor: default;
+
+}
+
+#poem-text a {
+    color: #cccccc;
+    text-decoration: none;
+}
+#poem-text a:hover {
+    color: #b488e6; 
+    
+}
     </style>
-
-
-<script>
-    const poem = document.getElementById("poem-text");
-    
-    const colors = [
-        "#ff6b6b",
-        "#ffd166",
-        "#06d6a0",
-        "#4cc9f0",
-        "#c77dff",
-        "#f72585",
-        "#ffffff",
-        "#e9c46a"
-    ];
-    
-    const originalText = poem.innerHTML;
-    
-    poem.innerHTML = originalText.replace(
-        /([^<>\s])/g,
-        (letter) => {
-            const color = colors[
-                Math.floor(Math.random() * colors.length)
-            ];
-    
-            return `<span style="--letter-color: ${color}">${letter}</span>`;
-        }
-    );
-    </script>
-
-
-
 </head>
 <body>
-<div id="poem">
 
+<div id="poem">
 <div id="text">
 <p id="poem-text">
-An cuimhin leat <br>
-an oíche úd <br>
-a bhí tú ag an bhfuinneog <br>
-Gan hata gan láimhne <br>
-dod dhíon gan chasóg? <br>
-Do shín mé mo lámh chughat's <br>
-do rug tú uirthi barróg <br>
-Gan hata gan láimhne dod dhíon gan chasóg? <br>
-'Gus labhair an fhuiseog <br>
-A chumainn mo chroí tar oíche ghar éigin <br>
-An cuimhin leat an oíche úd 'san oíche ag cur cuisne<br>
+<span>a</span> bhí tú ag an <a href="nota1.html">bhfuinneog</a> <br>
+<span>G</span><span>a</span><span>n</span> hata gan láimhne <br>
+<span>d</span><span>o</span><span>d</span> dhíon gan chasóg? <br>
+<span>D</span><span>o</span> <span>s</span><span>h</span><span>í</span><span>n</span> <span>m</span><span>é</span> <span>m</span><span>o</span> <span>l</span><span>á</span><span>m</span><span>h</span> <span>c</span><span>h</span><span>u</span><span>g</span><span>h</span><span>a</span><span>t</span>'<span>s</span>
+<br>
+<span>d</span><span>o</span> <span>r</span><span>u</span><span>g</span> <span>t</span><span>ú</span> <span>u</span><span>i</span><span>r</span><span>t</span><span>h</span><span>i</span> <span>b</span><span>a</span><span>r</span><span>r</span><span>ó</span><span>g</span>
+<br>
+'<span>G</span><span>u</span><span>s</span> <span>l</span><span>a</span><span>b</span><span>h</span><span>a</span><span>i</span><span>r</span> <span>a</span><span>n</span> <span>f</span><span>h</span><span>u</span><span>i</span><span>s</span><span>e</span><span>o</span><span>g</span>
+<br>
+<span>A</span> <span>c</span><span>h</span><span>u</span><span>m</span><span>a</span><span>i</span><span>n</span><span>n</span> <span>m</span><span>o</span> <span>c</span><span>h</span><span>r</span><span>í</span> <span>t</span><span>a</span><span>r</span> <span>o</span><span>í</span><span>c</span><span>h</span><span>e</span> <span>g</span><span>h</span><span>a</span><span>r</span> <span>é</span><span>i</span><span>g</span><span>i</span><span>n</span> <br>
 </p>
 </div>
 <div id="deer"></div>
@@ -147,7 +109,8 @@ An cuimhin leat an oíche úd 'san oíche ag cur cuisne<br>
     <img src="img/stamp1.png" title="sonhos de amor">
 </div>
 
+
 </div>
-    
+
 </body>
 </html>
