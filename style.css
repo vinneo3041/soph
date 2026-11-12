@@ -9,40 +9,39 @@
 
     /* Images - change paths if necessary */
     --backgroundimage:url(img/background2.jpg);
-    --headerimage:url(img/head2.jpg);
     --boximage:url(img/quote.jpg);
     
     /* Colors */
     --backgroundcolor:#ccc;
     --contentbackground:#d6d2d2;
 
-    --contentcolor:#4f4f4f;
-    --footercolor:#444;
+    --contentcolor:#7d8085;
+    --footercolor:#9ea4ad;
 
-    --title:#cfcdbc;
-    --header1:#cb4377;
-    --header2:#546926;
-    --header3:#cb4377;
+    --title:#e9eaee;
+    --header1:#7e43cb;
+    --header2:#6f8fcc;
+    --header3:#1d2950;
 
-    --navlink:#546926;
-    --navlinkhover:#cb4377;
-    --navlinkborder:#f47fac;
-    --navlinkborderhover:#b3d167;
+    --navlink:#266948;
+    --navlinkhover:#4357cb;
+    --navlinkborder:#7f9af4;
+    --navlinkborderhover:#6777d1;
 
-    --link:#982a54;
-    --linkhover:#cd2b94;
-    --linkborder:#b3d167;
+    --link:#82c297;
+    --linkhover:#2b64cd;
+    --linkborder:#67a1d1;
 
     --formbackground:#FFF;
-    --formcolor:#982a54;
-    --formborder:#b3d167;
+    --formcolor:#2a2c98;
+    --formborder:#6777d1;
 
     --boxbackground:#ccc;
-    --boxcolor:#555;
+    --boxcolor:#c24f4f;
     --boxborder:#999;
 
-    --footerlink:#982a54;
-    --footerlinkhover:#cd2b94;
+    --footerlink:#632a98;
+    --footerlinkhover:#2bcdaa;
     
 }
 
@@ -68,7 +67,7 @@ body {
 #banner {
     width:100%;
     height: 200px;
-    background:var(--headerimage) no-repeat center;
+    background:url(img/head2.jpg) no-repeat center;
     background-size:cover;
 
 }
@@ -210,3 +209,4 @@ body {
     top: 0;
     transition:top 0.5s ease;
 }
+

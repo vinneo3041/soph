@@ -24,13 +24,13 @@
 
     #imagenoise {
         background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original");
-        background-size: 15%;
+        background-size: 25%;
         text-align: center;
         position: fixed;
         inset: 0px;
         z-index: 1000;
         pointer-events: none;
-        opacity: 0.8;
+        opacity: 1;
         mix-blend-mode:soft-light
     }
 
@@ -163,9 +163,9 @@
     <defs>
         <filter id="nitidez">
             <feConvolveMatrix order="3" preserveAlpha="true" kernelMatrix="
-                0 0 -5
-0 1 -1
-3 -1 0"/>
+0 0 -1
+1 3.8 -1
+-1 0 -0.5"/>
         </filter>
     </defs>
 </svg>
