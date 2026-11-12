@@ -6,111 +6,211 @@
     <title>140626</title>
     <style>
     body {
-    background:url("img/grass.jpg");
-    background-size:20%;
-    text-align:center;
-    font-family:'Times New Roman', Times, serif; 
-    color:#d4b170;
-    font-size:50px;
-    
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        background: url("https://i.pinimg.com/736x/3b/51/4d/3b514d0e0336db680ff36a9de75f5471.jpg");
+        /* background:url("img/grass.jpg"); */
+        background-size: cover;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif; 
+        color: #d4b170;
+        inset:0;
+        font-size: 50px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        overflow: hidden;
+    }
 
-#poem {
-    position: absolute;
-    text-align: center;
-}
+    #imagenoise {
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original");
+        background-size: 15%;
+        text-align: center;
+        position: fixed;
+        inset: 0px;
+        z-index: 1000;
+        pointer-events: none;
+        opacity: 0.8;
+        mix-blend-mode:soft-light
+    }
 
-#text {
-    position: absolute;
-    text-align: left;
-    transform: translate(-180px, -480px);
-    width: 3003px;
-    text-shadow: -3px 2px 1px #000000;
-    z-index: 2;
-}
+    #imageoverlay1 {
+        background-image: url("https://i.pinimg.com/736x/2c/79/15/2c7915558c5b05ec8a7da305a1d7d067.jpg");
+        background-size: cover;
+        text-align: center;
+        position: fixed;
+        inset: 0px;
+        z-index: 1001;
+        pointer-events: none;
+        opacity:0.3;
+        mix-blend-mode:hue;
+    }
+    #imageoverlay2 {
+        background-image: url("https://i.pinimg.com/736x/2c/79/15/2c7915558c5b05ec8a7da305a1d7d067.jpg");
+        background-size: cover;
+        text-align: center;
+        position: fixed;
+        inset: 0px;
+        z-index: 1001;
+        pointer-events: none;
+        opacity: 1;
+        mix-blend-mode:saturation;
+    }
 
-#deer {
-    width: 300px;
-    height: 300px;
-    text-align: center;
-    position: absolute;
-    z-index: 1;
-    background:url("img/deer.jpg") no-repeat center;
-    background-size:cover;
-    transform: translate(-255px, -30px);
-    box-shadow: 0px 0px 54px #dbb671;
-}
+    /* Camada de sobreposição com Blur e Nitidez */
+    #overlay-efeitos {
+        position: fixed;
+        inset: 0; /* Cobre 100% da tela (top, right, bottom, left: 0) */
+        width: 100vw;
+        height: 100vh;
+        z-index: 999; /* Fica acima de todos os elementos */
+        pointer-events: none; /* Permite clicar e passar o mouse no texto e selo abaixo */
+        
+        /* Aplica o desfoque (blur) + nitidez (filtro SVG + contraste) */
+        backdrop-filter: blur(1.02px) url(#nitidez) contrast(130%);
+        -webkit-backdrop-filter: blur(1.25px) contrast(115%);
+    }
 
-#deer:hover {
-    box-shadow: 0px 0px 54px #f6f5f7;
-    transform: translate(-255px, -30px);
-}
+    #poem {
+        position: absolute;
+        transform: translate(-100px, 0px);
+        text-align: left;
+    }
 
-#stamp {
-    width:auto;
-    height:auto;
-    text-align: center;
-    position: absolute;
-    z-index: 2;
-    transform: translate(360px, -420px) scale(1.2);
-}
-#stamp:hover {
-    content: url("img/stamp2.png");
-    transform: translate(360px, -420px) scale(1.3);
-}
-#stamp:active {
-    transform: translate(360px, -420px) scale(1.35);
-}
+    #text {
+        position: absolute;
+        text-align: left;
+        transform: translate(-180px, -480px);
+        height: 400px;
+        width: 800px;
+        text-shadow: -3px 2px 1px #000000;
+        z-index: 3;
+    }
 
-#poem-text span {
-    display: inline-block;
-    color: #e7b964;
-}
+    #deer {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        position: absolute;
+        z-index: 1;
+        background: url("img/deer.jpg") no-repeat center;
+        background-size: cover;
+        transform: translate(-255px, -30px) rotate(-8deg);
+        box-shadow: -8px 8px 0px rgb(0, 0, 0);
+    }
 
-#poem-text span:hover {
-    color: #b488e6;
-    cursor: default;
+    #deer:hover {
+        box-shadow: -8px 8px 0px rgb(0, 0, 0);
+        transform: translate(-255px, -30px) rotate(-6deg);
+    }
 
-}
+    #stamp {
+        width: 99px;
+        height: 56px;
+        text-align: center;
+        position: absolute;
+        background: url("img/stamp1.png") no-repeat center;
+        background-size: cover;
+        z-index: 3;
+        transform: translate(430px, -320px) scale(1) rotate(20deg);
+    }
 
-#poem-text a {
-    color: #cccccc;
-    text-decoration: none;
-}
-#poem-text a:hover {
-    color: #b488e6; 
-    
-}
+    #stamp:hover {
+        background: url("img/stamp2.png") no-repeat center;
+        background-size: cover;
+        transform: translate(430px, -320px) scale(1.2) rotate(20deg);
+    }
+
+    #stamp:active {
+        transform: translate(430px, -320px) scale(1.24) rotate(20deg);
+    }
+
+    #poem-text span {
+        transform: scaleX(0.9);
+        letter-spacing: -5px;
+        display: inline-block;
+        color: #dbb671;
+    }
+
+    #poem-text span:hover {
+        color: #b488e6;
+        cursor: default;
+        text-shadow: -3px 2px 2px #000000;
+    }
+
+    #poem-text a {
+        transform: scaleX(0.9);
+        letter-spacing: -5px;
+        display: inline-block;
+        color: #cccccc;
+        text-decoration: none;
+    }
+
+    #poem-text a:hover {
+        color: #d2a0e9;
+        text-shadow: 0px 0px 20px #ff0000;
+    }
     </style>
 </head>
 <body>
 
+<div id="imagenoise"></div>
+<div id="imageoverlay1"></div>
+<div id="imageoverlay2"></div>
+
+<!-- Filtro SVG oculto para gerar o efeito de nitidez real (Sharpen) -->
+<svg style="display: none;">
+    <defs>
+        <filter id="nitidez">
+            <feConvolveMatrix order="3" preserveAlpha="true" kernelMatrix="
+                0 0 -5
+0 1 -1
+3 -1 0"/>
+        </filter>
+    </defs>
+</svg>
+
+<!-- Camada que sobrepõe o site inteiro com os efeitos -->
+<div id="overlay-efeitos"></div>
+
 <div id="poem">
-<div id="text">
-<p id="poem-text">
-<span>a</span> bhí tú ag an <a href="nota1.html">bhfuinneog</a> <br>
-<span>G</span><span>a</span><span>n</span> hata gan láimhne <br>
-<span>d</span><span>o</span><span>d</span> dhíon gan chasóg? <br>
-<span>D</span><span>o</span> <span>s</span><span>h</span><span>í</span><span>n</span> <span>m</span><span>é</span> <span>m</span><span>o</span> <span>l</span><span>á</span><span>m</span><span>h</span> <span>c</span><span>h</span><span>u</span><span>g</span><span>h</span><span>a</span><span>t</span>'<span>s</span>
-<br>
-<span>d</span><span>o</span> <span>r</span><span>u</span><span>g</span> <span>t</span><span>ú</span> <span>u</span><span>i</span><span>r</span><span>t</span><span>h</span><span>i</span> <span>b</span><span>a</span><span>r</span><span>r</span><span>ó</span><span>g</span>
-<br>
-'<span>G</span><span>u</span><span>s</span> <span>l</span><span>a</span><span>b</span><span>h</span><span>a</span><span>i</span><span>r</span> <span>a</span><span>n</span> <span>f</span><span>h</span><span>u</span><span>i</span><span>s</span><span>e</span><span>o</span><span>g</span>
-<br>
-<span>A</span> <span>c</span><span>h</span><span>u</span><span>m</span><span>a</span><span>i</span><span>n</span><span>n</span> <span>m</span><span>o</span> <span>c</span><span>h</span><span>r</span><span>í</span> <span>t</span><span>a</span><span>r</span> <span>o</span><span>í</span><span>c</span><span>h</span><span>e</span> <span>g</span><span>h</span><span>a</span><span>r</span> <span>é</span><span>i</span><span>g</span><span>i</span><span>n</span> <br>
-</p>
-</div>
-<div id="deer"></div>
-<div id="stamp">
-    <img src="img/stamp1.png" title="sonhos de amor">
+    <div id="text">
+        <p id="poem-text">//
+Amo-te tanto, meu amor… não */
+O humano coração com mais verdade…/
+Amo-te como amigo e como amante/
+Numa sempre diversa realidade/
+Amo-te afim, de um calmo amor prestante,/
+E te amo além, presente na saudade./
+Amo-te, enfim, com grande liberdade/
+Dentro da eternidade e a cada instante./</p>
+    </div>
+    <div id="deer"></div>
+    <div id="stamp">
+        <!-- <img src="img/stamp1.png" title="sonhos de amor"> -->
+    </div>
 </div>
 
-
-</div>
+<script> 
+const poemtext = document.getElementById("poem-text");
+const textoOriginal = poemtext.innerText;
+let novoHtml = "";
+[...textoOriginal].forEach(char => {
+    if (char === "/") {
+        novoHtml += "<br>"; 
+    }
+    else if (char === "*") {
+        novoHtml += "<a href='nota2.html'>cante</a>";
+    }
+    else if (char === " ") {
+        novoHtml += "&nbsp;";
+    }
+    else {
+        novoHtml += `<span>${char}</span>`;
+    }
+});
+poemtext.innerHTML = novoHtml;
+</script>
 
 </body>
 </html>

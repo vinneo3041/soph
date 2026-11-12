@@ -8,7 +8,53 @@
 <meta charset="utf-8">
 
 </head>
+
+<style>
+#imagenoise {
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original");
+        background-size: 15%;
+        text-align: center;
+        position: fixed;
+        inset: 0px;
+        z-index: 1000;
+        pointer-events: none;
+        opacity: 1;
+        mix-blend-mode:soft-light
+    }
+
+    /* Camada de sobreposição com Blur e Nitidez */
+    #overlay-efeitos {
+        position: fixed;
+        inset: 0; /* Cobre 100% da tela (top, right, bottom, left: 0) */
+        width: 100vw;
+        height: 100vh;
+        z-index: 999; /* Fica acima de todos os elementos */
+        pointer-events: none; /* Permite clicar e passar o mouse no texto e selo abaixo */
+        
+        /* Aplica o desfoque (blur) + nitidez (filtro SVG + contraste) */
+        backdrop-filter: blur(1.02px) url(#nitidez) contrast(130%);
+        -webkit-backdrop-filter: blur(1.25px) contrast(115%);
+    }
+</style>
+
+
 <body>
+
+<div id="imagenoise"></div>
+
+<!-- Filtro SVG oculto para gerar o efeito de nitidez real (Sharpen) -->
+<svg style="display: none;">
+    <defs>
+        <filter id="nitidez">
+            <feConvolveMatrix order="3" preserveAlpha="true" kernelMatrix="
+                1 2 -3
+4 11 -63
+7 8 -9"/>
+        </filter>
+    </defs>
+</svg>
+
+
 
 <!-- Accessibility! Don't remove! -->
 <div id="top"></div>
