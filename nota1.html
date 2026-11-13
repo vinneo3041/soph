@@ -7,8 +7,8 @@
     <style>
     body {
         background: url("https://i.pinimg.com/736x/3b/51/4d/3b514d0e0336db680ff36a9de75f5471.jpg");
-        /* background:url("img/grass.jpg"); */
-        background-size: cover;
+        /* background:url("img/background3.png"); */
+        background-size:cover;
         text-align: center;
         font-family: 'Times New Roman', Times, serif; 
         color: #d4b170;
@@ -21,6 +21,19 @@
         margin: 0;
         overflow: hidden;
     }
+
+    #black {
+        background-image: linear-gradient(90deg, black 25%, rgb(255, 255, 255) 25%, rgb(255, 255, 255) 80%,black 80%);;
+        background-size: cover;
+        position: fixed;
+        inset: 0px;
+        z-index: 0;
+        pointer-events: none;
+        opacity:1;
+        mix-blend-mode: darken;
+    }
+
+    
 
     #imagenoise {
         background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original");
@@ -126,13 +139,15 @@
     }
 
     #poem-text span {
-        transform: scaleX(0.9);
+        transform: scaleX(0.9) scaleY(1.3) skew(-10deg);
         letter-spacing: -5px;
         display: inline-block;
         color: #dbb671;
+        transition: ease-in 0.1s;
     }
 
     #poem-text span:hover {
+        transform: scaleX(1.1) scaleY(1.3) skew(-15deg);
         color: #b488e6;
         cursor: default;
         text-shadow: -3px 2px 2px #000000;
@@ -144,15 +159,20 @@
         display: inline-block;
         color: #cccccc;
         text-decoration: none;
-    }
+        transition-duration: 0.7s;
+        }
 
     #poem-text a:hover {
+        transform: scaleX(1.2) rotate(20deg);
         color: #d2a0e9;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
         text-shadow: 0px 0px 20px #ff0000;
     }
     </style>
 </head>
 <body>
+
+<div id="black"></div>
 
 <div id="imagenoise"></div>
 <div id="imageoverlay1"></div>
